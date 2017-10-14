@@ -9,15 +9,9 @@ import { HomeComponent } from './component/home/home.component';
 import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
-import {HttpModule} from '@angular/http';
-import { FormsModule } from '@angular/forms';
-import {AuthService} from './services/auth/auth.service';
-import { NavbarComponent } from './component/navbar/navbar.component';
 import { AgmCoreModule } from '@agm/core';
 
 //Services
-import { RegisterService } from './services/register/register.service';
-import { HttpService } from './services/http/http-service.service';
 import { CalendarComponent } from './component/dashboard/calendar/calendar.component';
 import { ParksComponent } from './component/dashboard/parks/parks.component';
 import { ApptsComponent } from './component/dashboard/appts/appts.component';

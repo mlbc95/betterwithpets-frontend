@@ -11,6 +11,8 @@ import {AuthService} from '../../../../services/auth/auth.service';
 })
 export class AddPetComponent implements OnInit {
 
+  
+
   model: any;
   uploadedFiles: any[] = [];
   image: any;
@@ -43,9 +45,13 @@ export class AddPetComponent implements OnInit {
     this.model.details.weight = this.model.details.weight;
     var pet = this.model;
     this.model.category = this.selectedCategory;
+    
+    console.log(this.model.gender);
 
-    console.log("in create pet");
-    // this.readThis();
+    this.model.gender = (this.model.gender == true) ? "female" : "male";
+    this.model.visible = (this.model.visible == true);
+
+    console.log(this.model);
     this.http.post('pets/addpet', pet, {'Content-Type':'application/json',
                                         'Authorization': this.auth.getToken()})
       .subscribe(data => {

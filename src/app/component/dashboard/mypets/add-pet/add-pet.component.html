@@ -24,6 +24,7 @@
 
               <div class="input-group form-group">
                   <p-inputSwitch onLabel="Female" name="gender" offLabel="Male" [(ngModel)]="model.gender"></p-inputSwitch>
+                    
               </div>
 
               <div class="input-group form-group">
@@ -37,6 +38,10 @@
               <div class="input-group form-group">
                   <input [(ngModel)]="model.details.age.unit" name="unit" type="text" class="form-control" placeholder="Unit">
                 </div>
+              
+              <div class="input-group form-group">
+                  <p-inputSwitch onLabel="Visible" name="visibility" offLabel="Invisible" [(ngModel)]="model.visible"></p-inputSwitch> 
+              </div>
 
               <h4>Category</h4>
               <p-selectButton [options]="categories" name="things" [(ngModel)]="selectedCategory"></p-selectButton>

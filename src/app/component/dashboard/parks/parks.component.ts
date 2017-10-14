@@ -15,7 +15,7 @@ export class ParksComponent implements OnInit {
     private router: Router,
   ) {
     this.markers = this.createMarkers();
-    this.zoom = 5;
+    this.zoom = 10;
   }
 
   ngOnInit() {
@@ -25,20 +25,23 @@ export class ParksComponent implements OnInit {
     //api call here maybe
     return [
       {
-        id: 'A',
+        id: '1',
+        title: "Lucas Dog Pard",
         description: "here is some information",
-        lat: 39.673858,
-        lng: -91.815982
+        lat: 38.631490,
+        lng: -90.199680
       },{
-        id: 'B',
+        id: '2',
+        title: "French Town Dog Park",
         description: "here is some information",
-        lat: 38.673858,
-        lng: -90.815982
+        lat: 38.610060,
+        lng: -90.205450
       },{
-        id: 'C',
+        id: '3',
+        title: "Benton Park West Dog Park",
         description: "here is some information",
-        lat: 37.673858,
-        lng: -89.815982
+        lat: 38.595778,
+        lng: -90.231667
       }
     ]
   }

@@ -7,7 +7,7 @@ import { CommonModule } from "@angular/common";
 @Component({
   selector: 'maps',
   templateUrl: './maps.component.html',
-  styleUrls: ['./maps.component.scss']
+  styleUrls: ['./maps.component.css']
 })
 export class MapsComponent implements OnInit{
 

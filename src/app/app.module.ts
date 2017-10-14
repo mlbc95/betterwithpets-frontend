@@ -6,7 +6,7 @@ import { HomeComponent } from './component/home/home.component';
 import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
-import { NavbarComponent } from './component/src/app/component/navbar/navbar.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
 
 //Services
 import { HttpService } from './services/http-service.service';
@@ -14,7 +14,7 @@ import { HttpService } from './services/http-service.service';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent }
 ];

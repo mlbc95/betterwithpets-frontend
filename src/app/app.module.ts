@@ -8,6 +8,7 @@ import { LoginComponent } from './component/login/login.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import {HttpModule} from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import {AuthService} from './services/auth/auth.service';
 
 //Services
 import { HttpService } from './services/http/http-service.service';
@@ -38,6 +39,8 @@ const routes: Routes = [
   providers: [
     HttpService,
     RegisterService,
+    AuthService,
+
   ],
   bootstrap: [AppComponent]
 })

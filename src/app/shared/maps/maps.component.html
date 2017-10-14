@@ -1,0 +1,32 @@
+<div class="map-container">
+
+  <!--<md-toolbar color="accent">-->
+    <!--<span>{{title}}</span>-->
+    <!--<span class="mam-spacer"></span>-->
+    <!--<button md-raised-button color="primary" (click)="goBack()">GO BACK</button>-->
+  <!--</md-toolbar>-->
+
+  <agm-map
+    [latitude]="lat"
+    [longitude]="lng"
+    [zoom]="zoom">
+
+    <agm-marker
+      *ngFor="let m of markers"
+      [latitude]="m.lat"
+      [longitude]="m.lng"
+      [label]="m.label">
+
+      <agm-info-window>
+        <div class="info-window-block">
+          <div class="container">
+            <div>{{m.title}}</div>
+            <div>{{m.description}}</div>
+          </div>
+        </div>
+      </agm-info-window>
+
+    </agm-marker>
+
+  </agm-map>
+</div>

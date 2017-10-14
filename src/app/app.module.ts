@@ -9,12 +9,18 @@ import { HomeComponent } from './component/home/home.component';
 import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { AgmCoreModule } from '@agm/core';
+
+//Services
 import { CalendarComponent } from './component/dashboard/calendar/calendar.component';
 import { ParksComponent } from './component/dashboard/parks/parks.component';
 import { ApptsComponent } from './component/dashboard/appts/appts.component';
 import { LastSeenComponent } from './component/dashboard/last-seen/last-seen.component';
 import { DashboardLayoutComponent } from '../layout/dashboard-layout/dashboard-layout.component';
 import { MypetsComponent } from './component/dashboard/mypets/mypets.component';
+
+//Shared
+import { MapsModule } from './shared/maps/maps.module';
 import { SidenavComponent } from './component/dashboard/sidenav/sidenav.component';
 import { DefaultlayoutComponent } from '../layout/defaultlayout/defaultlayout.component';
 import {NavbarComponent} from './component/navbar/navbar.component'
@@ -81,6 +87,8 @@ const routes: Routes = [
     LastSeenComponent,
     DashboardLayoutComponent,
     MypetsComponent,
+    NavbarComponent,
+    MypetsComponent,
     SidenavComponent,
     DefaultlayoutComponent
   ],
@@ -88,13 +96,17 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpModule,
-    FormsModule
+    FormsModule,
+    MapsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCOjECnj7oHctNBjeC4S01nSlMQfMiM3sk'
+    }
+    )
   ],
   providers: [
     HttpService,
     RegisterService,
-    AuthService,
-
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

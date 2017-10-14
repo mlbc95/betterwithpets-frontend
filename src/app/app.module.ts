@@ -10,13 +10,14 @@ import {HttpModule} from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import {AuthService} from './services/auth/auth.service';
 import { NavbarComponent } from './component/navbar/navbar.component';
+import { AgmCoreModule } from '@agm/core';
 
 //Services
 import { HttpService } from './services/http/http-service.service';
 import { RegisterService } from './services/register/register.service';
 
 //Shared
-import { MapsComponent } from './shared/maps/maps.component';
+import { MapsModule } from './shared/maps/maps.module';
 
 
 const routes: Routes = [
@@ -33,19 +34,20 @@ const routes: Routes = [
     RegisterComponent,
     LoginComponent,
     DashboardComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpModule,
-    FormsModule
+    FormsModule,
+    MapsModule,
+    AgmCoreModule.forRoot()
   ],
   providers: [
     HttpService,
     RegisterService,
-    AuthService,
-    MapsComponent
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

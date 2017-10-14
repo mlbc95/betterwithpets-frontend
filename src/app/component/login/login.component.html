@@ -1,3 +1,27 @@
-<p>
-  login works!
-</p>
+<div class="background">
+  <div class="row">
+        <div class="mx-auto">
+    
+          <div class="card login-card">
+            <div class="card-block">
+              <h4 class="card-title">Welcome to Petfolio!</h4>
+              <form>
+    
+                <div class="input-group form-group">
+                  <input [(ngModel)]="model.username" name="username" type="text" class="form-control" placeholder="Username">
+                </div>
+    
+                <div class="input-group form-group">
+                  <input [(ngModel)]="model.password" name="password" type="password" class="form-control" placeholder="Password">
+                </div>
+  
+                <input class="btn btn-primary" type="submit" value="Submit" (click)="submitForm()">
+              </form>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    
+    </div>  
+  

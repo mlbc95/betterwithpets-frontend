@@ -10,7 +10,6 @@ export class DashboardComponent implements OnInit {
 
   markers: any[];
   zoom: number;
-  marker: any = {};
 
   constructor(
     private router: Router,
@@ -21,10 +20,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
   }
-
-
-
-
 
   createMarkers(){
     //api call here maybe

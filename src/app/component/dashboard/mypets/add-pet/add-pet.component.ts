@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SelectItem} from 'primeng/primeng';
 
 @Component({
   selector: 'app-add-pet',
@@ -7,7 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPetComponent implements OnInit {
 
-  constructor() { }
+    categories: any[];
+    selectedCategory: string;
+
+    model: any;
+
+  constructor() {
+    this.model = {};
+    this.categories =[];
+    this.categories.push({label:'Cat', value:'Cat'});
+    this.categories.push({label:'Dog', value:'Dog'});
+    this.categories.push({label:'Chameleon', value:'Chameleon'});
+   }
 
   ngOnInit() {
   }

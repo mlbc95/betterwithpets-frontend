@@ -11,6 +11,7 @@ import { LoginComponent } from './component/login/login.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AgmCoreModule } from '@agm/core';
 import { AddPetComponent } from './component/dashboard/mypets/add-pet/add-pet.component';
+import {SelectButtonModule} from 'primeng/primeng';
 
 //Services
 import { CalendarComponent } from './component/dashboard/calendar/calendar.component';
@@ -101,6 +102,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     DataListModule,
+    SelectButtonModule,
     RouterModule.forRoot(routes),
     HttpModule,
     FormsModule,

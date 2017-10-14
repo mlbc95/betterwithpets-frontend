@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       (data: any): void => {
         if(data.success) {
           console.log(data.success);
-          this.authService.storeUserData(data.token, data.admin);
+          this.authService.storeUserData(data.token, data.user);
           // this.flashMessagesService.show(
           //   'You are logged in',
           //   {

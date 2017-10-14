@@ -15,12 +15,46 @@ import { AgmCoreModule } from '@agm/core';
 //Services
 import { HttpService } from './services/http/http-service.service';
 import { RegisterService } from './services/register/register.service';
+import { HttpService } from './services/http-service.service';
+import { CalendarComponent } from './component/dashboard/calendar/calendar.component';
+import { ParksComponent } from './component/dashboard/parks/parks.component';
+import { ApptsComponent } from './component/dashboard/appts/appts.component';
+import { LastSeenComponent } from './component/dashboard/last-seen/last-seen.component';
+import { DashboardLayoutComponent } from '../layout/dashboard-layout/dashboard-layout.component';
+import { MypetsComponent } from './component/dashboard/mypets/mypets.component';
 
 //Shared
 import { MapsModule } from './shared/maps/maps.module';
 
 
 const routes: Routes = [
+  {
+  path:'dashboard', component: DashboardLayoutComponent, children:[
+    {
+      path:'',
+      component: DashboardComponent,
+      children:[
+        {
+          path:'parks',
+          component:ParksComponent
+        },
+        {
+          path:'appts',
+          component:ApptsComponent
+        },
+        {
+          path:'my-pets',
+          component:MypetsComponent
+        },
+        {
+          path:'last-seen',
+          component: LastSeenComponent
+        }
+      ]
+    }
+
+  ]
+},
   { path: 'register', component: RegisterComponent },
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
@@ -34,6 +68,13 @@ const routes: Routes = [
     RegisterComponent,
     LoginComponent,
     DashboardComponent,
+    NavbarComponent,
+    CalendarComponent,
+    ParksComponent,
+    ApptsComponent,
+    LastSeenComponent,
+    DashboardLayoutComponent,
+    MypetsComponent
     NavbarComponent,
   ],
   imports: [

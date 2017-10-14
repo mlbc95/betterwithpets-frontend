@@ -4,18 +4,28 @@ import { NgModule,  } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HttpModule} from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import {FileUploadModule} from 'primeng/primeng';
+import {SelectButtonModule} from 'primeng/primeng';
+import {InputSwitchModule} from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
 import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { AgmCoreModule } from '@agm/core';
+import { AddPetComponent } from './component/dashboard/mypets/add-pet/add-pet.component';
+
+//Services
 import { CalendarComponent } from './component/dashboard/calendar/calendar.component';
 import { ParksComponent } from './component/dashboard/parks/parks.component';
 import { ApptsComponent } from './component/dashboard/appts/appts.component';
 import { LastSeenComponent } from './component/dashboard/last-seen/last-seen.component';
 import { DashboardLayoutComponent } from '../layout/dashboard-layout/dashboard-layout.component';
 import { MypetsComponent } from './component/dashboard/mypets/mypets.component';
+
+//Shared
+import { MapsModule } from './shared/maps/maps.module';
 import { SidenavComponent } from './component/dashboard/sidenav/sidenav.component';
 import { DefaultlayoutComponent } from '../layout/defaultlayout/defaultlayout.component';
 import {NavbarComponent} from './component/navbar/navbar.component'
@@ -34,6 +44,7 @@ import { VendorHomeComponent } from './component/vendor/vendor-home/vendor-home.
 import { VendorLayoutComponent } from '../layout/vendor-layout/vendor-layout.component';
 import { VendorSidenavComponent } from './component/vendor/vendor-sidenav/vendor-sidenav.component';
 
+import {DataListModule} from 'primeng/primeng';
 
 const routes: Routes = [
 
@@ -75,7 +86,7 @@ const routes: Routes = [
           component:CalendarComponent
         },
         {
-          path:'parks', 
+          path:'parks',
           component:ParksComponent
         },
         {
@@ -85,6 +96,10 @@ const routes: Routes = [
         {
           path:'my-pets',
           component:MypetsComponent
+        },
+        {
+          path:'add-pet',
+          component:AddPetComponent
         },
         {
           path:'last-seen',
@@ -121,6 +136,9 @@ const routes: Routes = [
     LastSeenComponent,
     DashboardLayoutComponent,
     MypetsComponent,
+    NavbarComponent,
+    MypetsComponent,
+    AddPetComponent,
     SidenavComponent,
     DefaultlayoutComponent,
     PetsInfoComponent,
@@ -130,20 +148,29 @@ const routes: Routes = [
     VendorHomeComponent,
     VendorLayoutComponent,
     VendorSidenavComponent,
-    
+
   ],
   imports: [
     BrowserModule,
+    DataListModule,
+    SelectButtonModule,
+    FileUploadModule,
     RouterModule.forRoot(routes),
     HttpModule,
+    FormsModule,
+    MapsModule,
+    InputSwitchModule,
+    SelectButtonModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCOjECnj7oHctNBjeC4S01nSlMQfMiM3sk'
+    }),
     FormsModule,
     ScheduleModule,DialogModule,CalendarModule,CheckboxModule,BrowserAnimationsModule
   ],
   providers: [
     HttpService,
     RegisterService,
-    AuthService,
-
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

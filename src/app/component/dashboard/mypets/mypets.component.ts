@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, SecurityContext} from '@angular/core';
+import {HttpService} from '../../../services/http/http-service.service';
+import {AuthService} from '../../../services/auth/auth.service';
+import {DomSanitizer} from "@angular/platform-browser";
+import {SecureContext} from "tls";
 
 @Component({
   selector: 'app-mypets',
@@ -7,7 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MypetsComponent implements OnInit {
 
-  constructor() { }
+  userPets: any;
+  currentUser: any;
+
+  constructor(
+    public httpService: HttpService,
+    public authService: AuthService,
+    public _DomSanitizer: DomSanitizer,
+  ) {
+
+    this.httpService.get('pets/getPetsByUser/' + this.authService.getCurrentUser()._id, {'Content-Type':'application/json'})
+      .subscribe(data => {
+        this.userPets = data.pets;
+        console.log(this.userPets);
+      });
+  }
 
   ngOnInit() {
   }

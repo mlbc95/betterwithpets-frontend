@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SelectItem} from 'primeng/primeng';
+import {HttpService} from '../../../../services/http/http-service.service';
 
 @Component({
   selector: 'app-add-pet',
@@ -13,7 +14,9 @@ export class AddPetComponent implements OnInit {
 
     model: any;
 
-  constructor() {
+  constructor(
+    public http: HttpService
+  ) {
     this.model = {};
     this.categories =[];
     this.categories.push({label:'Cat', value:'Cat'});
@@ -22,6 +25,15 @@ export class AddPetComponent implements OnInit {
    }
 
   ngOnInit() {
+  }
+
+
+  createPet(){
+    var pet = this.model;
+
+    console.log("in create pet");
+    this.http.post('pets/addpet', pet, {'Content-Type':'application/json'});
+
   }
 
 }

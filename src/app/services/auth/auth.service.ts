@@ -25,6 +25,11 @@ export class AuthService {
     this.user = user;
   }
 
+  getCurrentUser(){
+    console.log(localStorage.getItem('user'));
+    return JSON.parse(localStorage.getItem('user'));
+  }
+
   loadToken(){
     const token = localStorage.getItem('id_token');
     this.authToken = token;
@@ -33,7 +38,7 @@ export class AuthService {
   loggedIn(){
     return tokenNotExpired();
   }
-  
+
   logout(){
     this.authToken = null;
     this.user = null;

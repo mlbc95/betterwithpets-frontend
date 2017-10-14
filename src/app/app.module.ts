@@ -9,6 +9,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import {HttpModule} from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import {AuthService} from './services/auth/auth.service';
+import { NavbarComponent } from './component/navbar/navbar.component';
 
 //Services
 import { HttpService } from './services/http/http-service.service';
@@ -17,7 +18,7 @@ import { RegisterService } from './services/register/register.service';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent }
 ];
@@ -28,7 +29,8 @@ const routes: Routes = [
     HomeComponent,
     RegisterComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

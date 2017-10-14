@@ -6,12 +6,9 @@ export class RegisterService {
 
   constructor(
     public httpService: HttpService,
-
   ) { }
 
-
   registerNewUser(user){
-    console.log(user);
     return this.httpService.post('users/register', user, {'Content-Type':'application/json'});
   }
 

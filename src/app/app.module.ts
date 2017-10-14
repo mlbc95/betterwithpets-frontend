@@ -13,9 +13,8 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { AgmCoreModule } from '@agm/core';
 
 //Services
-import { HttpService } from './services/http/http-service.service';
 import { RegisterService } from './services/register/register.service';
-import { HttpService } from './services/http-service.service';
+import { HttpService } from './services/http/http-service.service';
 import { CalendarComponent } from './component/dashboard/calendar/calendar.component';
 import { ParksComponent } from './component/dashboard/parks/parks.component';
 import { ApptsComponent } from './component/dashboard/appts/appts.component';
@@ -74,7 +73,7 @@ const routes: Routes = [
     ApptsComponent,
     LastSeenComponent,
     DashboardLayoutComponent,
-    MypetsComponent
+    MypetsComponent,
     NavbarComponent,
   ],
   imports: [
@@ -83,7 +82,10 @@ const routes: Routes = [
     HttpModule,
     FormsModule,
     MapsModule,
-    AgmCoreModule.forRoot()
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCOjECnj7oHctNBjeC4S01nSlMQfMiM3sk'
+    }
+    )
   ],
   providers: [
     HttpService,

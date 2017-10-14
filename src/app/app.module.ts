@@ -1,14 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,  } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
 import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import {HttpModule} from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 //Services
-import { HttpService } from './services/http-service.service';
+import { HttpService } from './services/http/http-service.service';
+import { RegisterService } from './services/register/register.service';
 
 
 const routes: Routes = [
@@ -28,10 +31,13 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpModule,
+    FormsModule
   ],
   providers: [
-    HttpService
+    HttpService,
+    RegisterService,
   ],
   bootstrap: [AppComponent]
 })

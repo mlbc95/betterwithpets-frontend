@@ -26,7 +26,7 @@ export class ParksComponent implements OnInit {
     return [
       {
         id: '1',
-        title: "Lucas Dog Pard",
+        title: "Lucas Dog Park",
         description: "here is some information",
         lat: 38.631490,
         lng: -90.199680

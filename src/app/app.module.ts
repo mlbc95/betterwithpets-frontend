@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule,  } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HttpModule} from '@angular/http';
@@ -18,7 +19,7 @@ import { MypetsComponent } from './component/dashboard/mypets/mypets.component';
 import { SidenavComponent } from './component/dashboard/sidenav/sidenav.component';
 import { DefaultlayoutComponent } from '../layout/defaultlayout/defaultlayout.component';
 import {NavbarComponent} from './component/navbar/navbar.component'
-
+import {ScheduleModule,DialogModule,CalendarModule,CheckboxModule} from 'primeng/primeng'
 
 //Services
 import { HttpService } from './services/http/http-service.service';
@@ -35,7 +36,11 @@ const routes: Routes = [
       component: DashboardComponent,
       children:[
         {
-          path:'parks',
+          path:'',
+          component:CalendarComponent
+        },
+        {
+          path:'parks', 
           component:ParksComponent
         },
         {
@@ -82,13 +87,15 @@ const routes: Routes = [
     DashboardLayoutComponent,
     MypetsComponent,
     SidenavComponent,
-    DefaultlayoutComponent
+    DefaultlayoutComponent,
+    
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpModule,
-    FormsModule
+    FormsModule,
+    ScheduleModule,DialogModule,CalendarModule,CheckboxModule,BrowserAnimationsModule
   ],
   providers: [
     HttpService,

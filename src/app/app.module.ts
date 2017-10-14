@@ -144,7 +144,7 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpModule,
-    ScheduleModule,DialogModule,CalendarModule,CheckboxModule,BrowserAnimationsModule
+    ScheduleModule,DialogModule,CalendarModule,CheckboxModule,BrowserAnimationsModule,
     FormsModule,
     MapsModule,
     AgmCoreModule.forRoot({

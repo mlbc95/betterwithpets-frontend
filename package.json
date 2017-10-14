@@ -10,7 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build"
+    "postinstall": " npm install bootstrap@4.0.0-alpha.6 && ng build"
   },
   "engine": {
     "node": "~6.10.3",
@@ -36,8 +36,8 @@
     "jquery": "^3.2.1",
     "popper.js": "^1.12.5",
     "rxjs": "^5.4.2",
-    "tether": "^1.4.0",
-    "zone.js": "^0.8.14"
+    "zone.js": "^0.8.14",
+    "angular2-jwt":"^0.2.3"
   },
   "devDependencies": {
     "@angular/cli": "1.3.1",

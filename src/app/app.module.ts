@@ -15,7 +15,9 @@ import { ApptsComponent } from './component/dashboard/appts/appts.component';
 import { LastSeenComponent } from './component/dashboard/last-seen/last-seen.component';
 import { DashboardLayoutComponent } from '../layout/dashboard-layout/dashboard-layout.component';
 import { MypetsComponent } from './component/dashboard/mypets/mypets.component';
-import{NavbarComponent} from './component/navbar/navbar.component'
+import { SidenavComponent } from './component/dashboard/sidenav/sidenav.component';
+import { DefaultlayoutComponent } from '../layout/defaultlayout/defaultlayout.component';
+import {NavbarComponent} from './component/navbar/navbar.component'
 
 
 //Services
@@ -53,10 +55,16 @@ const routes: Routes = [
 
   ]
 },
+
+{
+  path:'',component:DefaultlayoutComponent,children:[
+
   { path: 'register', component: RegisterComponent },
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent }
+  ]
+}
 ];
 
 @NgModule({
@@ -72,7 +80,9 @@ const routes: Routes = [
     ApptsComponent,
     LastSeenComponent,
     DashboardLayoutComponent,
-    MypetsComponent
+    MypetsComponent,
+    SidenavComponent,
+    DefaultlayoutComponent
   ],
   imports: [
     BrowserModule,

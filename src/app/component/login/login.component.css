@@ -1,0 +1,15 @@
+h4 {
+    color: #87F940;
+    font-size: 30px;
+    text-align: center;
+}
+
+.login-card {
+    padding: 30px 30px 30px 30px;
+    width: 350px;
+    height: 420px;
+    margin-top: 20%;  
+}
+.form-control{
+    padding: 10px 10px;
+}

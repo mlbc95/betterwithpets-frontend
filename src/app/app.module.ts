@@ -26,9 +26,44 @@ import { HttpService } from './services/http/http-service.service';
 
 import {AuthService} from './services/auth/auth.service';
 import { RegisterService } from './services/register/register.service';
+import { PetsInfoComponent } from './component/vendor/pets-info/pets-info.component';
+import { UserInfoComponent } from './component/vendor/user-info/user-info.component';
+import { DashboardVendorComponent } from './component/vendor/dashboard-vendor/dashboard-vendor.component';
+import { CalendarVendorComponent } from './component/vendor/calendar-vendor/calendar-vendor.component';
+import { VendorHomeComponent } from './component/vendor/vendor-home/vendor-home.component';
+import { VendorLayoutComponent } from '../layout/vendor-layout/vendor-layout.component';
+import { VendorSidenavComponent } from './component/vendor/vendor-sidenav/vendor-sidenav.component';
 
 
 const routes: Routes = [
+
+  {
+    path:'vendor-dashboard',component:VendorLayoutComponent, children:[
+      {
+        path:'',
+        component: DashboardVendorComponent,
+        children:[
+          {
+            path:'',
+            component:VendorHomeComponent
+          },
+          {
+            path:'vendor-calendar',
+            component:CalendarVendorComponent
+          },
+          {
+            path:'pets-info',
+            component:PetsInfoComponent
+          },
+          {
+            path:'user-info',
+            component:UserInfoComponent
+          }
+        ]
+      }
+    ]
+
+  },
   {
   path:'dashboard', component: DashboardLayoutComponent, children:[
     {
@@ -88,6 +123,13 @@ const routes: Routes = [
     MypetsComponent,
     SidenavComponent,
     DefaultlayoutComponent,
+    PetsInfoComponent,
+    UserInfoComponent,
+    DashboardVendorComponent,
+    CalendarVendorComponent,
+    VendorHomeComponent,
+    VendorLayoutComponent,
+    VendorSidenavComponent,
     
   ],
   imports: [

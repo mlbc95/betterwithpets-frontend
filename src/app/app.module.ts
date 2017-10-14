@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule,  } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {HttpModule} from '@angular/http';
+import { FormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
 import { RegisterComponent } from './component/register/register.component';
@@ -24,6 +27,16 @@ import { MypetsComponent } from './component/dashboard/mypets/mypets.component';
 
 //Shared
 import { MapsModule } from './shared/maps/maps.module';
+import { SidenavComponent } from './component/dashboard/sidenav/sidenav.component';
+import { DefaultlayoutComponent } from '../layout/defaultlayout/defaultlayout.component';
+import {NavbarComponent} from './component/navbar/navbar.component'
+
+
+//Services
+import { HttpService } from './services/http/http-service.service';
+
+import {AuthService} from './services/auth/auth.service';
+import { RegisterService } from './services/register/register.service';
 
 
 const routes: Routes = [
@@ -54,10 +67,16 @@ const routes: Routes = [
 
   ]
 },
+
+{
+  path:'',component:DefaultlayoutComponent,children:[
+
   { path: 'register', component: RegisterComponent },
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent }
+  ]
+}
 ];
 
 @NgModule({
@@ -75,6 +94,9 @@ const routes: Routes = [
     DashboardLayoutComponent,
     MypetsComponent,
     NavbarComponent,
+    MypetsComponent,
+    SidenavComponent,
+    DefaultlayoutComponent
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,16 @@
-<div class="masthead clearfix">
-        <div class="inner">
-          <a class="masthead-brand" [routerLink]="['']">
-              <img src="../../../assets/image/0ae15e66f2be1672974f3e3d86c52e86--font-design-cat-logo-design.jpg" width="30" height="30" alt="">
-            </a>
-          <nav class="nav nav-masthead">
-            <a  class="nav-link" [routerLink]="['']" >Home</a>
-            <a  class="nav-link " [routerLink]="['/login']" (click)="flag('login')">Login</a>
-            <a  class="nav-link " [routerLink]="['/register']" (click)="flag('register')">Register</a>
-          </nav>
-        </div>
-      </div>
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" [routerLink]="['']">LOGO</a>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/login']">Login <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" [routerLink]="['/register']">Register</a>
+        </li>
+      </ul>
+    </div>
+  </nav>

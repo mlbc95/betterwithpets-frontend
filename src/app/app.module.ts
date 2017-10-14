@@ -163,8 +163,7 @@ const routes: Routes = [
     SelectButtonModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCOjECnj7oHctNBjeC4S01nSlMQfMiM3sk'
-    }
-    )
+    }),
     FormsModule,
     ScheduleModule,DialogModule,CalendarModule,CheckboxModule,BrowserAnimationsModule
   ],

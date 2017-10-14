@@ -4,27 +4,28 @@
   </p-header>
   <ng-template let-pet pTemplate="item">
     <div class="ui-g ui-fluid car-item">
-      <!--<div class="ui-g-12 ui-md-3" style="text-align:center">-->
-        <!--<img src="assets/showcase/images/demo/car/{{pet.whoKnows}}.png">-->
-      <!--</div>-->
-      <div class="ui-g-12 ui-md-9 car-details">
-        <div class="ui-g">
-          <div class="ui-g-2 ui-sm-6">Pet Name: </div>
-          <div class="ui-g-10 ui-sm-6">{{pet.name}}</div>
-        
-          <div class="ui-g-2 ui-sm-6">Category: </div>
-          <div class="ui-g-10 ui-sm-6">{{pet.category}}</div>
+      <div class="ui-g-12 ui-md-3" style="text-align:center">
+        <img [src]="_DomSanitizer.bypassSecurityTrustUrl(pet.details.photo)" height="125" width="75" alt="img"/>
+      </div>
+        <div class="ui-g-12 ui-md-9 pet-details">
+          <div class="ui-g">
+            <div class="ui-g-2 ui-sm-6">Pet Name: </div>
+            <div class="ui-g-10 ui-sm-6">{{pet.name}}</div>
 
-          <div class="ui-g-2 ui-sm-6">Breed: </div>
-          <div class="ui-g-10 ui-sm-6">{{pet.breed}}</div>
+            <div class="ui-g-2 ui-sm-6">Category: </div>
+            <div class="ui-g-10 ui-sm-6">{{pet.category}}</div>
 
-          <div class="ui-g-2 ui-sm-6">Gender: </div>
-          <div class="ui-g-10 ui-sm-6">{{pet.gender}}</div>
+            <div class="ui-g-2 ui-sm-6">Breed: </div>
+            <div class="ui-g-10 ui-sm-6">{{pet.breed}}</div>
 
-          <div class="ui-g-2 ui-sm-6">Age: </div>
-          <div class="ui-g-10 ui-sm-6">{{pet.details.age.number}}</div>
+            <div class="ui-g-2 ui-sm-6">Gender: </div>
+            <div class="ui-g-10 ui-sm-6">{{pet.gender}}</div>
+
+            <div class="ui-g-2 ui-sm-6">Age: </div>
+            <div class="ui-g-10 ui-sm-6">{{pet.details.age.number}}</div>
+          </div>
         </div>
       </div>
-    </div>
+    <hr>
   </ng-template>
 </p-dataList>

@@ -6,7 +6,7 @@
           <div class="card-block">
             <h4 class="card-title">Add Your Pet</h4>
             <form>
-                <p-fileUpload name="demo[]" url="{{uploadUrl}}" (onUpload)="onUpload($event)" accept="image/*" maxFileSize="1000000">
+                <p-fileUpload name="demo[]" auto="auto" customUpload="true" (uploadHandler)="myUploader($event)" accept="image/*" maxFileSize="1000000">
                   <template pTemplate="content">
                     <ul *ngIf="uploadedFiles.length">
                       <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>

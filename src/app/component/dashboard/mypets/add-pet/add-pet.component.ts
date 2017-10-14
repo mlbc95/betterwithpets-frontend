@@ -11,7 +11,7 @@ import {AuthService} from '../../../../services/auth/auth.service';
 })
 export class AddPetComponent implements OnInit {
 
-  
+
 
   model: any;
   uploadedFiles: any[] = [];
@@ -22,6 +22,7 @@ export class AddPetComponent implements OnInit {
   selectedTypes: string[] = [];
   categories: any[];
   selectedCategory: string;
+  base64: string;
 
   constructor(
     public http: HttpService,
@@ -30,6 +31,7 @@ export class AddPetComponent implements OnInit {
     this.model = {};
     this.model.details = {};
     this.model.details.age = {};
+    this.model.details.photo = '';
     this.categories =[];
     this.categories.push({label:'Cat', value:'Cat'});
     this.categories.push({label:'Dog', value:'Dog'});
@@ -45,15 +47,13 @@ export class AddPetComponent implements OnInit {
     this.model.details.weight = this.model.details.weight;
     var pet = this.model;
     this.model.category = this.selectedCategory;
-    
-    console.log(this.model.gender);
+    var pet = this.model;
+    console.log(pet);
 
     this.model.gender = (this.model.gender == true) ? "female" : "male";
     this.model.visible = (this.model.visible == true);
 
-    console.log(this.model);
-    this.http.post('pets/addpet', pet, {'Content-Type':'application/json',
-                                        'Authorization': this.auth.getToken()})
+    this.http.post('pets/addpet', pet, {'Content-Type':'application/json', 'Authorization': this.auth.getToken()})
       .subscribe(data => {
         console.log(data);
       },
@@ -63,26 +63,14 @@ export class AddPetComponent implements OnInit {
 
   }
 
-  onUpload(event) {
-    this.uploadedFiles.push(event.files[0]);
-  }
-
-  readThis(inputValue: any): void {
-    var file:File = inputValue.files[0];
-    var myReader:FileReader = new FileReader();
-
-    myReader.onloadend = (e) => {
-      this.image = myReader.result;
+  myUploader(event) {
+    console.log(event.files);
+    let reader = new FileReader();
+    reader.onloadend = () => {
+      this.model.details.photo = reader.result;
     };
-    myReader.readAsDataURL(file);
-    console.log(myReader.readAsDataURL(file));
-  }
-
-
-
-
-
-
+    reader.readAsDataURL(event.files[0]);
+   }
 
   clear() {
     this.selectedType = null;

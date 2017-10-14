@@ -10,6 +10,7 @@ import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AgmCoreModule } from '@agm/core';
+import { AddPetComponent } from './component/dashboard/mypets/add-pet/add-pet.component';
 
 //Services
 import { CalendarComponent } from './component/dashboard/calendar/calendar.component';
@@ -53,6 +54,10 @@ const routes: Routes = [
           component:MypetsComponent
         },
         {
+          path:'add-pet',
+          component:AddPetComponent
+        },
+        {
           path:'last-seen',
           component: LastSeenComponent
         }
@@ -89,6 +94,7 @@ const routes: Routes = [
     MypetsComponent,
     NavbarComponent,
     MypetsComponent,
+    AddPetComponent,
     SidenavComponent,
     DefaultlayoutComponent
   ],

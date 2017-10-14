@@ -31,7 +31,7 @@ import { HttpService } from './services/http/http-service.service';
 
 import {AuthService} from './services/auth/auth.service';
 import { RegisterService } from './services/register/register.service';
-
+import {DataListModule} from 'primeng/primeng';
 
 const routes: Routes = [
   {
@@ -94,6 +94,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    DataListModule,
     RouterModule.forRoot(routes),
     HttpModule,
     FormsModule,

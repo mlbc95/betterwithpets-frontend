@@ -15,6 +15,9 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { HttpService } from './services/http/http-service.service';
 import { RegisterService } from './services/register/register.service';
 
+//Shared
+import { MapsComponent } from './shared/maps/maps.component';
+
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -42,7 +45,7 @@ const routes: Routes = [
     HttpService,
     RegisterService,
     AuthService,
-
+    MapsComponent
   ],
   bootstrap: [AppComponent]
 })

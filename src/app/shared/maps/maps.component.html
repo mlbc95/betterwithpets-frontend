@@ -1,0 +1,32 @@
+<md-card class="portal-card">
+
+  <md-toolbar color="accent">
+    <span>{{title}}</span>
+    <span class="mam-spacer"></span>
+    <button md-raised-button color="primary" (click)="goBack()">GO BACK</button>
+  </md-toolbar>
+
+  <agm-map
+    [latitude]="lat"
+    [longitude]="lng"
+    [zoom]="zoom">
+
+    <agm-marker
+      *ngFor="let m of markers"
+      [latitude]="m.lat"
+      [longitude]="m.lng"
+      [label]="m.label">
+
+      <agm-info-window>
+        <div class="info-window-block">
+          <md-card>
+            <md-card-title>{{m.title}}</md-card-title>
+            <md-card-content>{{m.description}}</md-card-content>
+          </md-card>
+        </div>
+      </agm-info-window>
+
+    </agm-marker>
+
+  </agm-map>
+</md-card>

@@ -26,6 +26,8 @@ export class AddPetComponent implements OnInit {
     public auth: AuthService,
   ) {
     this.model = {};
+    this.model.details = {};
+    this.model.details.age = {};
     this.categories =[];
     this.categories.push({label:'Cat', value:'Cat'});
     this.categories.push({label:'Dog', value:'Dog'});
@@ -37,11 +39,9 @@ export class AddPetComponent implements OnInit {
 
 
   createPet(){
+    this.model.details.age = this.model.details.age;
+    this.model.details.weight = this.model.details.weight;
     var pet = this.model;
-    console.log(this.uploadedFiles);
-    console.log(this.selectedTypes);
-    console.log(this.model);
-    console.log(this.auth.getToken());
     this.model.category = this.selectedCategory;
 
     console.log("in create pet");

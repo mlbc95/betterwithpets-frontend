@@ -17,16 +17,10 @@ export class MypetsComponent implements OnInit {
     public authService: AuthService,
   ) {
 
-
-
-
-
-    console.log("currentUser");
-    console.log(this.authService.getCurrentUser());
-
     this.httpService.get('pets/getPetsByUser/' + this.authService.getCurrentUser()._id, {'Content-Type':'application/json'})
       .subscribe(data => {
         this.userPets = data.pets;
+        console.log(this.userPets);
       });
   }
 

@@ -19,12 +19,16 @@
               </div>
 
               <div class="input-group form-group">
-                <input [(ngModel)]="model.weight" name="weight" type="number" class="form-control" placeholder="Weight">
+                <input [(ngModel)]="model.details.weight" name="weight" type="number" class="form-control" placeholder="Weight">
               </div>
 
               <div class="input-group form-group">
-                <input [(ngModel)]="model.age" name="age" type="number" class="form-control" placeholder="Age">
+                <input [(ngModel)]="model.details.age.number" name="age" type="number" class="form-control" placeholder="Age">
               </div>
+
+              <div class="input-group form-group">
+                  <input [(ngModel)]="model.details.age.unit" name="unit" type="text" class="form-control" placeholder="Unit">
+                </div>
 
               <h4>Category</h4>
               <p-selectButton [options]="categories" name="things" [(ngModel)]="selectedCategory"></p-selectButton>

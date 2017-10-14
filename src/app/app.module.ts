@@ -15,6 +15,7 @@ import { LoginComponent } from './component/login/login.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AgmCoreModule } from '@agm/core';
 import { AddPetComponent } from './component/dashboard/mypets/add-pet/add-pet.component';
+import {TabViewModule} from 'primeng/primeng';
 
 //Services
 import { CalendarComponent } from './component/dashboard/calendar/calendar.component';
@@ -161,6 +162,7 @@ const routes: Routes = [
     MapsModule,
     InputSwitchModule,
     SelectButtonModule,
+    TabViewModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCOjECnj7oHctNBjeC4S01nSlMQfMiM3sk'
     }),

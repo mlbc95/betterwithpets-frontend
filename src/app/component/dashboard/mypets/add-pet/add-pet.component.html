@@ -1,58 +1,43 @@
-<<<<<<< HEAD
 <div>
-  <img src="https://bloximages.chicago2.vip.townnews.com/auburnpub.com/content/tncms/assets/v3/editorial/b/6e/b6eeba3f-4652-5489-883e-149785d54a78/5791234145b8a.image.jpg">
-    
-      <div class="row">
-        <div class="col-10 mx-auto">
-    
-          <div class="card register-card">
-            <div class="card-block">
-              <h4 class="card-title">Pet Page</h4>
-              <form>
-                <div class="input-group form-group">
-                  <input [(ngModel)]="model.username" name="petname" type="text" class="form-control" placeholder="Pet Name">
-                </div>
-    
-                <div class="input-group form-group">
-                  <input [(ngModel)]="model.password" name="weight" type="number" class="form-control" placeholder="Weight">
-                </div>
-    
-                <div class="input-group form-group">
-                  <input [(ngModel)]="model.confirmPassword" name="age" type="number" class="form-control" placeholder="Age">
-                </div>
-    
-                <h4>Pet Type</h4>
-                <p-selectButton [options]="categories" name="things" [(ngModel)]="selectedCategory"></p-selectButton>
-                
-              </form>
-            </div>
+    <div class="row">
+      <div class="col-10 mx-auto">
+
+        <div class="card register-card">
+          <div class="card-block">
+            <h4 class="card-title">Add Your Pet</h4>
+            <form>
+                <p-fileUpload name="demo[]" url="{{uploadUrl}}" (onUpload)="onUpload($event)" accept="image/*" maxFileSize="1000000">
+                  <template pTemplate="content">
+                    <ul *ngIf="uploadedFiles.length">
+                      <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                    </ul>
+                  </template>
+                </p-fileUpload>
+              <br>
+              <div class="input-group form-group">
+                <input [(ngModel)]="model.name" name="petname" type="text" class="form-control" placeholder="Pet Name">
+              </div>
+
+              <div class="input-group form-group">
+                <input [(ngModel)]="model.weight" name="weight" type="number" class="form-control" placeholder="Weight">
+              </div>
+
+              <div class="input-group form-group">
+                <input [(ngModel)]="model.age" name="age" type="number" class="form-control" placeholder="Age">
+              </div>
+
+              <h4>Category</h4>
+              <p-selectButton [options]="categories" name="things" [(ngModel)]="selectedCategory"></p-selectButton>
+
+              <br>
+              <br>
+              <button (click)="createPet()" class="btn btn-primary">Submit</button>
+
+            </form>
           </div>
-    
         </div>
+
       </div>
-=======
-<div class="container">
-  <div class="row">
-    <div class="col-10 mx-auto">
-
-      <div class="card add-pet-car">
-        <div class="card-block">
-          <h4 class="card-title">Add New Pet</h4>
-          <form (submit)="onRegisterSubmit()">
-
-
-
-
-            <input class="btn btn-primary" type="button" (click)="createPet()" value="Submit">
-
-
-          </form>
-        </div>
-      </div>
-
     </div>
-  </div>
-
->>>>>>> 528df5d866be9fa4c6cd247828a3600a914a3737
 </div>
 

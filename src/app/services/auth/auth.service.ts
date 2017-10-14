@@ -25,6 +25,10 @@ export class AuthService {
     this.user = user;
   }
 
+  getToken(){
+    return localStorage.getItem('id_token');
+  }
+
   getCurrentUser(){
     console.log(localStorage.getItem('user'));
     return JSON.parse(localStorage.getItem('user'));

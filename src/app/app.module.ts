@@ -3,6 +3,8 @@ import { NgModule,  } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HttpModule} from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import {FileUploadModule} from 'primeng/primeng';
+import {SelectButtonModule} from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
@@ -11,7 +13,6 @@ import { LoginComponent } from './component/login/login.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AgmCoreModule } from '@agm/core';
 import { AddPetComponent } from './component/dashboard/mypets/add-pet/add-pet.component';
-import {SelectButtonModule} from 'primeng/primeng';
 
 //Services
 import { CalendarComponent } from './component/dashboard/calendar/calendar.component';
@@ -103,10 +104,12 @@ const routes: Routes = [
     BrowserModule,
     DataListModule,
     SelectButtonModule,
+    FileUploadModule,
     RouterModule.forRoot(routes),
     HttpModule,
     FormsModule,
     MapsModule,
+    SelectButtonModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCOjECnj7oHctNBjeC4S01nSlMQfMiM3sk'
     }

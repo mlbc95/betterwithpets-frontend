@@ -8,6 +8,9 @@ import { LoginComponent } from './component/login/login.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { NavbarComponent } from './component/src/app/component/navbar/navbar.component';
 
+//Services
+import { HttpService } from './services/http-service.service';
+
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -29,7 +32,9 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    HttpService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

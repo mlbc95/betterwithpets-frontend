@@ -5,12 +5,12 @@
             [style]="{'overflow':'visible'}" [resizable]="false">
             <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="event">
                 <div class="ui-grid-row">
-                    <div class="ui-grid-col-4"><label for="vin">Title</label></div>
-                    <div class="ui-grid-col-8"><input pInputText id="title" [(ngModel)]="event.title" /></div>
+                    <div class="ui-grid-col-4"><label for="vin">Vendor </label></div>
+                    <div class="ui-grid-col-8"><p-dropdown [options]="businessName" [(ngModel)]="event.vendorId" placeholder="Select"></p-dropdown></div>
                 </div>
                 <div class="ui-grid-row">
-                    <div class="ui-grid-col-4"><label for="start">Start</label></div>
-                    <div class="ui-grid-col-8"><p-calendar [(ngModel)]="event.start" dateFormat="yy-mm-dd" dataType="string"></p-calendar></div>
+                    <div class="ui-grid-col-4"><label for="start">Pet</label></div>
+                    <div class="ui-grid-col-8"><p-dropdown [options]="pets" [(ngModel)]="event.vendorId" placeholder="Select"></p-dropdown></div>
                 </div>
                 <div class="ui-grid-row">
                     <div class="ui-grid-col-4"><label for="end">End</label></div>

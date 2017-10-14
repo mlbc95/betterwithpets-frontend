@@ -1,4 +1,7 @@
 import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
+import { Headers, Http, RequestOptions, Response } from "@angular/http";
+import "rxjs/add/operator/map";
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-calendar',
@@ -7,48 +10,54 @@ import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 })
 export class CalendarComponent implements OnInit {
 
-  constructor(private cd: ChangeDetectorRef) { }
+  constructor(private cd: ChangeDetectorRef, private http:Http) { }
   events: any[];
   header: any;
+  vendors:any[];
+  businessName:any[]=[]
   event: MyEvent;
   dialogVisible: boolean = false;
   idGen: number = 100;
+  pets:any[];
 
   ngOnInit() {
     this.header = {
 			left: 'prev,next today',
 			center: 'title',
 			right: 'month,agendaWeek,agendaDay'
-		};
-    this.events = [
-      {
-          "title": "All Day Event",
-          "start": "2016-01-01"
-      },
-      {
-          "title": "Long Event",
-          "start": "2016-01-07",
-          "end": "2016-01-10"
-      },
-      {
-          "title": "Repeating Event",
-          "start": "2016-01-09T16:00:00"
-      },
-      {
-          "title": "Repeating Event",
-          "start": "2016-01-16T16:00:00"
-      },
-      {
-          "title": "Conference",
-          "start": "2016-01-11",
-          "end": "2016-01-13"
-      }
-  ];
+        };
+        
+        this.http.get("https://betterwithpets-server.herokuapp.com/vendors").map(res =>{ return res.json()})
+        .subscribe(data=>{
+            console.log(data.vendors)
+            this.vendors = data.vendors
+            console.log(this.vendors)
+
+            for(let i in this.vendors)
+                {
+                    this.businessName.push({label:this.vendors[i].businessName, 
+                                                value:this.vendors[i]._id});
+                   
+
+                }
+        })
+
+       var user = JSON.parse(localStorage.getItem("user"))
+
+        this.http.get("https://betterwithpets-server.herokuapp.com/getPetsByUser/" + user._id ).map(res=>{
+            return res.json()
+        })
+        .subscribe(data =>{
+            this.pets =data;
+            
+        })
+ 
+
   }
 
   handleDayClick(event) {
     this.event = new MyEvent();
-    this.event.start = event.date.format();
+    // this.event.start = event.date.format();
     this.dialogVisible = true;
     
     //trigger detection manually as somehow only moving the mouse quickly after click triggers the automatic detection
@@ -56,24 +65,24 @@ export class CalendarComponent implements OnInit {
 }
 
 handleEventClick(e) {
-  this.event = new MyEvent();
-  this.event.title = e.calEvent.title;
+//   this.event = new MyEvent();
+//   this.event.title = e.calEvent.title;
   
-  let start = e.calEvent.start;
-  let end = e.calEvent.end;
-  if(e.view.name === 'month') {
-      start.stripTime();
-  }
+//   let start = e.calEvent.start;
+//   let end = e.calEvent.end;
+//   if(e.view.name === 'month') {
+//       start.stripTime();
+//   }
   
-  if(end) {
-      end.stripTime();
-      this.event.end = end.format();
-  }
+//   if(end) {
+//       end.stripTime();
+//       this.event.end = end.format();
+//   }
 
-  this.event.id = e.calEvent.id;
-  this.event.start = start.format();
-  this.event.allDay = e.calEvent.allDay;
-  this.dialogVisible = true;
+//   this.event.id = e.calEvent.id;
+//   this.event.start = start.format();
+//   this.event.allDay = e.calEvent.allDay;
+//   this.dialogVisible = true;
 }
 
 }
@@ -81,9 +90,12 @@ handleEventClick(e) {
 
 
 export class MyEvent {
-  id: number;
-  title: string;
-  start: string;
-  end: string;
-  allDay: boolean = true;
+  vendorId: string;
+  petId:string;
+  type: string;
+  description:string;
+  duration:{
+      amount: number;
+      unit:number;
+   }
 }

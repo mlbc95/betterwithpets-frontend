@@ -22,10 +22,6 @@ export class MypetsComponent implements OnInit {
 
     this.httpService.get('pets/getPetsByUser/' + this.authService.getCurrentUser()._id, {'Content-Type':'application/json'})
       .subscribe(data => {
-
-        // console.log(data );
-        // this._sanitizer.sanitize(SecurityContext.URL, data.pets[0].details.photo);
-
         this.userPets = data.pets;
         console.log(this.userPets);
       });

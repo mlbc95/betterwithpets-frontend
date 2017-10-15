@@ -21,6 +21,7 @@ export class CalendarComponent implements OnInit {
   idGen: number = 100;
   pets:any[];
   petName:any[]=[];
+  user:any;
   description:string;
   serviceType:any[]=[
     {label:"Grooming",value:"Grooming"},
@@ -53,9 +54,9 @@ export class CalendarComponent implements OnInit {
                 }
         })
 
-       var user = JSON.parse(localStorage.getItem("user"))
+       this.user = JSON.parse(localStorage.getItem("user"))
 
-        this.http.get("https://betterwithpets-server.herokuapp.com/pets/getPetsByUser/" + user._id ).map(res=>{
+        this.http.get("https://betterwithpets-server.herokuapp.com/pets/getPetsByUser/" + this.user._id ).map(res=>{
             return res.json()
         })
         .subscribe(data =>{
@@ -69,7 +70,7 @@ export class CalendarComponent implements OnInit {
             
         })
 
-        this.httpService.get("events/getEventsByUser/"+user._id,{}).subscribe(data=>{
+        this.httpService.get("events/getEventsByUser/"+this.user._id,{}).subscribe(data=>{
             console.log(data)
             this.events =data.events;
         })
@@ -80,7 +81,7 @@ export class CalendarComponent implements OnInit {
   handleDayClick(event) {
     this.event = new MyEvent();
     console.log("test")
-    // this.event.start = event.date.format();
+    //  this.event.date = event.date.format();
     this.dialogVisible = true;
     
     //trigger detection manually as somehow only moving the mouse quickly after click triggers the automatic detection
@@ -112,15 +113,26 @@ saveEvent() {
         .subscribe(
             (data: any) => {
                 console.log(data);
+                if(data.success){
+                 this.updateCal();
+                }
             }
         )
     console.log(this.event)
+    
   
         this.event = null;
     
     this.dialogVisible = false;
 }
 
+updateCal(){
+    this.httpService.get("events/getEventsByUser/"+this.user._id,{}).subscribe(data=>{
+        console.log(data)
+        this.events =data.events;
+    })
+
+}
 }
 
 

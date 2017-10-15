@@ -33,7 +33,7 @@ vendorSubmit(){
       (data: any): void => {
         if(data.success) {
           console.log(data);
-          this.authService.storeUserData(data.token, data.user);
+          this.authService.storeUserData(data.token, data.vendor);
           this.router.navigate(['/vendor-dashboard/']);
         } else {
           console.log(data);

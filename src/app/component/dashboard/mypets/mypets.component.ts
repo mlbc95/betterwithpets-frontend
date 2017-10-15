@@ -23,7 +23,6 @@ export class MypetsComponent implements OnInit {
     this.httpService.get('pets/getPetsByUser/' + this.authService.getCurrentUser()._id, {'Content-Type':'application/json'})
       .subscribe(data => {
         this.userPets = data.pets;
-        console.log(this.userPets);
       });
   }
 

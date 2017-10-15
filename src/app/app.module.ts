@@ -7,7 +7,6 @@ import { FormsModule } from '@angular/forms';
 import {FileUploadModule} from 'primeng/primeng';
 import {SelectButtonModule} from 'primeng/primeng';
 import {InputSwitchModule} from 'primeng/primeng';
-import {DropdownModule} from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';

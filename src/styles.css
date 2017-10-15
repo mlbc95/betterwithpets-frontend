@@ -91,11 +91,13 @@ body {
 }
 
 .myPetsList .ui-widget-header {
-  /* background: #E58E37; */
   background: #7F0F47;
-  /* background: #5FDFD8; */
   font-family: Impact, 'Arial Narrow Bold', sans-serif;
   font-size: 150%;
+}
+
+.purple-drank{
+  background: #7F0F47; font-family: Impact; color: white; font-size: 150%;
 }
 
 .myPetsList .ui-datalist-header {
@@ -107,3 +109,9 @@ body {
   font-size: 150%;
   color: white;
 }
+/* .petStyle .ui-widget-header {
+  background: #7F0F47;
+  font-family: Impact;
+  font-size: 150%;
+  color: white;
+} */

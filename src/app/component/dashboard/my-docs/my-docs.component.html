@@ -14,7 +14,7 @@
 <br>
 
 <p-orderList [value]="docs" [listStyle]="{'height':'250px'}" [responsive]="true" header="My Pet Docs"
-             filter="filter" filterBy="name" filterPlaceholder="Filter by name" dragdrop="true">
+             filter="filter" filterBy="name" filterPlaceholder="Filter by name" dragdrop="true" styleClass="medicalStyle">
   <ng-template let-doc pTemplate="item">
     <div class="ui-helper-clearfix">
       <img (click)="showDialog(doc.docNumber)" src="assets/image/docs/doc{{doc.docNumber}}.jpg" style="display:inline-block;margin:2px 0 2px 2px" width="48">

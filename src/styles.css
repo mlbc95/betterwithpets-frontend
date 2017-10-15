@@ -89,3 +89,10 @@ body {
     margin-top: 7rem;
   }
 }
+.medicalStyle .ui-widget-header{
+  background: #7F0F47;
+  font-family: Impact;
+  font-size: 155%;
+  color: white;
+}
+

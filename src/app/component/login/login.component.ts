@@ -29,12 +29,12 @@ vendorSubmit(){
       }
     };
     console.log(this.model);
-    this.authService.login(thing).subscribe(
+    this.authService.vendorLogin(thing).subscribe(
       (data: any): void => {
         if(data.success) {
-          console.log(data.success);
+          console.log(data);
           this.authService.storeUserData(data.token, data.user);
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/vendor-dashboard/']);
         } else {
           console.log(data);
           this.router.navigate(['/register']);
@@ -56,9 +56,13 @@ vendorSubmit(){
     this.authService.login(thing).subscribe(
       (data: any): void => {
         if(data.success) {
-          console.log(data.success);
+          console.log(data);
           this.authService.storeUserData(data.token, data.user);
-          this.router.navigate(['/dashboard']);
+          if(data.user.loginCount == 0){
+            this.router.navigate(['/dashboard/add-pet']);
+          }else{
+            this.router.navigate(['/dashboard']);
+          }
         } else {
           console.log(data);
           this.router.navigate(['/register']);

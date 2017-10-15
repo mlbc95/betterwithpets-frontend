@@ -29,7 +29,7 @@ vendorSubmit(){
       }
     };
     console.log(this.model);
-    this.authService.login(thing).subscribe(
+    this.authService.vendorLogin(thing).subscribe(
       (data: any): void => {
         if(data.success) {
           console.log(data);

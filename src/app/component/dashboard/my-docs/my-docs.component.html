@@ -1,0 +1,44 @@
+
+
+
+<p-fileUpload name="demo[]" auto="auto" customUpload="true" (uploadHandler)="myUploader($event)" accept="image/*" maxFileSize="1000000">
+  <template pTemplate="content">
+    <ul *ngIf="uploadedFiles.length">
+      <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+    </ul>
+  </template>
+</p-fileUpload>
+
+<br><br>
+<hr>
+<br>
+
+<p-orderList [value]="docs" [listStyle]="{'height':'250px'}" [responsive]="true" header="My Pet Docs"
+             filter="filter" filterBy="name" filterPlaceholder="Filter by name" dragdrop="true">
+  <ng-template let-doc pTemplate="item">
+    <div class="ui-helper-clearfix">
+      <img (click)="showDialog(doc.docNumber)" src="assets/image/docs/doc{{doc.docNumber}}.jpg" style="display:inline-block;margin:2px 0 2px 2px" width="48">
+      <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{doc.name}} - {{doc.shortDescription}} - {{doc.dateAdded}}</div>
+    </div>
+  </ng-template>
+</p-orderList>
+
+
+<p-dialog header="doc1" [(visible)]="display1" modal="modal" width="550" [responsive]="true">
+  <img src="assets/image/docs/doc1.jpg" style="display:inline-block;margin:2px 0 2px 2px" width="480">
+  <p-footer>
+    <button type="button" pButton icon="fa-close" (click)="display1=false" label="Close"></button>
+  </p-footer>
+</p-dialog>
+
+<p-dialog header="doc2" [(visible)]="display2" modal="modal" width="550" [responsive]="true">
+  <p-footer>
+    <img src="assets/image/docs/doc2.jpg" style="display:inline-block;margin:2px 0 2px 2px" width="480">
+    <button type="button" pButton icon="fa-close" (click)="display2=false" label="Close"></button>
+  </p-footer>
+</p-dialog>
+
+
+
+
+

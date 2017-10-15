@@ -1,4 +1,4 @@
-<p-dataList [value]="userPets" [paginator]="true" [rows]="2">
+<p-dataList [value]="userPets" [paginator]="true" [rows]="2" styleClass="myPetsList">
   <p-header>
     My Pets
   </p-header>
@@ -12,20 +12,20 @@
       </div>
         <div class="ui-g-12 ui-md-9 pet-details">
           <div class="ui-g">
-            <div class="ui-g-2 ui-sm-6">Pet Name: </div>
-            <div class="ui-g-10 ui-sm-6">{{pet.name}}</div>
+            <div class="ui-g-2 ui-sm-6" style="font-family: Impact;">Pet Name: </div>
+            <div class="ui-g-10 ui-sm-6" style="font-family: Impact; font-weight: 200;">{{pet.name}}</div>
 
-            <div class="ui-g-2 ui-sm-6">Category: </div>
-            <div class="ui-g-10 ui-sm-6">{{pet.category}}</div>
+            <div class="ui-g-2 ui-sm-6" style="font-family: Impact;">Category: </div>
+            <div class="ui-g-10 ui-sm-6" style="font-family: Impact;">{{pet.category}}</div>
 
-            <div class="ui-g-2 ui-sm-6">Breed: </div>
-            <div class="ui-g-10 ui-sm-6">{{pet.breed}}</div>
+            <div class="ui-g-2 ui-sm-6" style="font-family: Impact;">Breed: </div>
+            <div class="ui-g-10 ui-sm-6" style="font-family: Impact;">{{pet.breed}}</div>
 
-            <div class="ui-g-2 ui-sm-6">Gender: </div>
-            <div class="ui-g-10 ui-sm-6">{{pet.gender}}</div>
+            <div class="ui-g-2 ui-sm-6" style="font-family: Impact;">Gender: </div>
+            <div class="ui-g-10 ui-sm-6" style="font-family: Impact;">{{pet.gender}}</div>
 
-            <div class="ui-g-2 ui-sm-6">Age: </div>
-            <div class="ui-g-10 ui-sm-6">{{pet.details.age.number}}</div>
+            <div class="ui-g-2 ui-sm-6" style="font-family: Impact;">Age: </div>
+            <div class="ui-g-10 ui-sm-6" style="font-family: Impact;">{{pet.details.age.number}}</div>
           </div>
         </div>
       </div>

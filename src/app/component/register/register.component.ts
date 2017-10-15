@@ -68,21 +68,21 @@ export class RegisterComponent implements OnInit {
       };
       console.log(vendor);
       console.log(this.vendor);
-      // this.registerService.registerNewUser(vendor).subscribe(
-      //   (data: any): void => {
-      //     if(data.success) {
-      //       console.log("res");
-      //       console.log(data.success);
-      //       this.router.navigate(['/login']);
-      //     } else {
-      //       console.log(data);
-      //       this.router.navigate(['/register']);
-      //     }
-      //   },
-      //   (err: Error): void => {
-      //     console.log(err);
-      //   }
-      // );
+      this.registerService.registerNewUser(vendor).subscribe(
+        (data: any): void => {
+          if(data.success) {
+            console.log("res");
+            console.log(data.success);
+            this.router.navigate(['/login']);
+          } else {
+            console.log(data);
+            this.router.navigate(['/register']);
+          }
+        },
+        (err: Error): void => {
+          console.log(err);
+        }
+      );
     }
   }
 

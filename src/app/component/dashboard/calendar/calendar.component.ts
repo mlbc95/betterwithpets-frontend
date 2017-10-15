@@ -127,9 +127,9 @@ saveEvent() {
 }
 
 updateCal(){
-    this.httpService.get("events/getEventsByUser/"+this.user._id,{}).subscribe(data=>{
+    this.httpService.get("events/getLatest/"+this.user._id,{}).subscribe(data=>{
         console.log(data)
-        this.events =data.events;
+        this.events.push(data.event);
     })
 
 }

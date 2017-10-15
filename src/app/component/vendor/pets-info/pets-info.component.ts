@@ -23,8 +23,7 @@ export class PetsInfoComponent implements OnInit {
         for(var i = 0; i < data.pets.length; i++){
           if(!data.pets[i].details.photo){
             data.pets[i].useDefault = true;
-          }
-          else{
+          }else{
             data.pets[i].useDefault = false;
           }
         }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {RegisterService} from '../../services/register/register.service';
+import {SelectItem} from 'primeng/primeng';
 
 @Component({
   selector: 'app-register',
@@ -11,6 +12,8 @@ export class RegisterComponent implements OnInit {
 
   model: any;
   vendor: any;
+  types: SelectItem [];
+  type: string;
 
   constructor(
     public router: Router,
@@ -18,7 +21,13 @@ export class RegisterComponent implements OnInit {
   ) {
     this.model = {};
     this.vendor = {};
-  }
+    this.vendor.types = [];
+    this.vendor.types.push({label:"Vet", value:"Vet"});
+    this.vendor.types.push({label:"Grooming", value:"Grooming"});
+    this.vendor.types.push({label:"Daycare", value:"Daycare"});
+    
+    
+    }
 
   ngOnInit() {
   }
@@ -57,22 +66,23 @@ export class RegisterComponent implements OnInit {
         firstName: this.vendor.firstName,
         lastName: this.vendor.lastName,
       };
-
-      this.registerService.registerNewUser(vendor).subscribe(
-        (data: any): void => {
-          if(data.success) {
-            console.log("res");
-            console.log(data.success);
-            this.router.navigate(['/login']);
-          } else {
-            console.log(data);
-            this.router.navigate(['/register']);
-          }
-        },
-        (err: Error): void => {
-          console.log(err);
-        }
-      );
+      console.log(vendor);
+      console.log(this.vendor);
+      // this.registerService.registerNewUser(vendor).subscribe(
+      //   (data: any): void => {
+      //     if(data.success) {
+      //       console.log("res");
+      //       console.log(data.success);
+      //       this.router.navigate(['/login']);
+      //     } else {
+      //       console.log(data);
+      //       this.router.navigate(['/register']);
+      //     }
+      //   },
+      //   (err: Error): void => {
+      //     console.log(err);
+      //   }
+      // );
     }
   }
 

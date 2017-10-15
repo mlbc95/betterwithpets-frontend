@@ -5,33 +5,28 @@
 
       <h3 class="first">Default</h3>
       <p-tabView>
-        <p-tabPanel header="Pet Owner" leftIcon="fa-calendar">
+        <p-tabPanel header="Pet Owner" leftIcon="fa fa-paw" aria-hidden="true">
           <div class="card register-card">
             <div class="card-block">
               <h4 class="card-title">Welcome</h4>
               <form (submit)="onRegisterSubmit()">
                 <div class="input-group form-group">
-                  <span class="input-group-addon" id="username">@</span>
                   <input [(ngModel)]="model.username" name="username" type="text" class="form-control" placeholder="Username">
                 </div>
 
                 <div class="input-group form-group">
-                  <span class="input-group-addon" id="password">@</span>
                   <input [(ngModel)]="model.password" name="password" type="password" class="form-control" placeholder="Password">
                 </div>
 
                 <div class="input-group form-group">
-                  <span class="input-group-addon" id="confirm-password">@</span>
                   <input [(ngModel)]="model.confirmPassword" name="confirmPassword" type="password" class="form-control" placeholder="Confirm Password">
                 </div>
 
                 <div class="input-group form-group">
-                  <span class="input-group-addon" id="first-name">@</span>
                   <input [(ngModel)]="model.firstName" name="firstName" type="text" class="form-control" placeholder="First Name">
                 </div>
 
                 <div class="input-group form-group">
-                  <span class="input-group-addon" id="last-name">@</span>
                   <input [(ngModel)]="model.lastName" name="firstName" type="text" class="form-control" placeholder="Last Name">
                 </div>
 
@@ -40,38 +35,32 @@
             </div>
           </div>
         </p-tabPanel>
-        <p-tabPanel header="Vendor" leftIcon="fa-print">
+        <p-tabPanel header="Vendor" leftIcon="fa fa-users" aria-hidden="true">
           <div class="card register-card">
             <div class="card-block">
               <h4 class="card-title">Welcome</h4>
               <form (submit)="onRegisterSubmit()">
                 <div class="input-group form-group">
-                  <span class="input-group-addon" id="companyName">@</span>
                   <input [(ngModel)]="vendor.companyName" name="companyName" type="text" class="form-control" placeholder="Company Name">
                 </div>
 
                 <div class="input-group form-group">
-                  <span class="input-group-addon" id="contactName">@</span>
                   <input [(ngModel)]="vendor.contactName" name="contactName" type="text" class="form-control" placeholder="Contact Name">
                 </div>
 
                 <div class="input-group form-group">
-                  <span class="input-group-addon" id="address">@</span>
                   <input [(ngModel)]="vendor.address" name="address" type="text" class="form-control" placeholder="Address">
                 </div>
 
                 <div class="input-group form-group">
-                  <span class="input-group-addon" id="companyType">@</span>
-                  <input [(ngModel)]="vendor.companyType" name="companyType" type="text" class="form-control" placeholder="make dropdown for comp type">
+                  <p-dropdown [options]="vendor.types" name="companytype" [(ngModel)]="type"></p-dropdown>
                 </div>
 
                 <div class="input-group form-group">
-                  <span class="input-group-addon" id="companyPassword">@</span>
                   <input [(ngModel)]="vendor.companyPassword" name="companyPassword" type="password" class="form-control" placeholder="Password">
                 </div>
 
                 <div class="input-group form-group">
-                  <span class="input-group-addon" id="confirmCompanyPassword">@</span>
                   <input [(ngModel)]="vendor.confirmCompanyPassword" name="confirmCompanyPassword" type="password" class="form-control" placeholder="Confirm Password">
                 </div>
 

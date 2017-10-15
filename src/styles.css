@@ -101,3 +101,9 @@ body {
 .myPetsList .ui-datalist-header {
   color: white;
 }
+.medicalStyle .ui-widget-header{
+  background: #7F0F47;
+  font-family: Impact;
+  font-size: 150%;
+  color: white;
+}

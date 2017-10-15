@@ -60,15 +60,10 @@ export class RegisterComponent implements OnInit {
   }
   
   submitThingsForVendor(){
-    if(this.vendor.password === this.vendor.confirmPassword){
-      var vendor = {
-        companyName: this.vendor.companyName,
-        firstName: this.vendor.firstName,
-        lastName: this.vendor.lastName,
-      };
-      console.log(vendor);
+    if(this.vendor.companyPassword === this.vendor.confirmCompanyPassword){
       console.log(this.vendor);
-      this.registerService.registerNewUser(vendor).subscribe(
+      this.vendor.password = this.vendor.companyPassword;
+      this.registerService.registerNewVendor(this.vendor).subscribe(
         (data: any): void => {
           if(data.success) {
             console.log("res");

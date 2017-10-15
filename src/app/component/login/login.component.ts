@@ -58,7 +58,7 @@ vendorSubmit(){
         if(data.success) {
           console.log(data);
           this.authService.storeUserData(data.token, data.user);
-          if(data.user.loginCount == 0){
+          if(data.user.loginCount == 1){
             this.router.navigate(['/dashboard/add-pet']);
           }else{
             this.router.navigate(['/dashboard']);

@@ -58,7 +58,7 @@ export class RegisterComponent implements OnInit {
       );
     }
   }
-
+  
   submitThingsForVendor(){
     if(this.vendor.password === this.vendor.confirmPassword){
       var vendor = {

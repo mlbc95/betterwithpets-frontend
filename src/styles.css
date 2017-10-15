@@ -89,10 +89,15 @@ body {
     margin-top: 7rem;
   }
 }
-.medicalStyle .ui-widget-header{
+
+.myPetsList .ui-widget-header {
+  /* background: #E58E37; */
   background: #7F0F47;
-  font-family: Impact;
-  font-size: 155%;
-  color: white;
+  /* background: #5FDFD8; */
+  font-family: Impact, 'Arial Narrow Bold', sans-serif;
+  font-size: 150%;
 }
 
+.myPetsList .ui-datalist-header {
+  color: white;
+}

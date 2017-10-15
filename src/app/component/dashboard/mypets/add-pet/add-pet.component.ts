@@ -57,8 +57,11 @@ export class AddPetComponent implements OnInit {
 
     this.http.post('pets/addpet', pet, {'Content-Type':'application/json', 'Authorization': this.auth.getToken()})
       .subscribe(data => {
-        this.router.navigate(['/my-pets']);
-        console.log(data);
+        if(data.success) {
+          console.log("whhhhyyyyy");
+          this.router.navigate(['dashboard/my-pets']);
+          console.log(data);
+        }
       },
       error => {
         console.log(error);

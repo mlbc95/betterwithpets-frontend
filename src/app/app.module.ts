@@ -29,13 +29,15 @@ import { MapsModule } from './shared/maps/maps.module';
 import { SidenavComponent } from './component/dashboard/sidenav/sidenav.component';
 import { DefaultlayoutComponent } from '../layout/defaultlayout/defaultlayout.component';
 import {NavbarComponent} from './component/navbar/navbar.component'
-import {ScheduleModule,DialogModule,CalendarModule,CheckboxModule} from 'primeng/primeng'
+import {ScheduleModule,DialogModule,CalendarModule,
+        CheckboxModule,DropdownModule,InputTextareaModule} from 'primeng/primeng'
 
 //Services
 import { HttpService } from './services/http/http-service.service';
 
 import {AuthService} from './services/auth/auth.service';
 import { RegisterService } from './services/register/register.service';
+import {EventsService} from './services/events/events.service'
 import { PetsInfoComponent } from './component/vendor/pets-info/pets-info.component';
 import { UserInfoComponent } from './component/vendor/user-info/user-info.component';
 import { DashboardVendorComponent } from './component/vendor/dashboard-vendor/dashboard-vendor.component';
@@ -157,20 +159,24 @@ const routes: Routes = [
     FileUploadModule,
     RouterModule.forRoot(routes),
     HttpModule,
-    ScheduleModule,DialogModule,CalendarModule,CheckboxModule,BrowserAnimationsModule,
+    ScheduleModule,DialogModule,CalendarModule,CheckboxModule,
+    BrowserAnimationsModule,InputTextareaModule,
     FormsModule,
     MapsModule,
     InputSwitchModule,
     SelectButtonModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCOjECnj7oHctNBjeC4S01nSlMQfMiM3sk'
-    }
-    )
+    }),
+    FormsModule,
+    ScheduleModule,DialogModule,CalendarModule,CheckboxModule,BrowserAnimationsModule,
+    DropdownModule
   ],
   providers: [
     HttpService,
     RegisterService,
-    AuthService
+    AuthService,
+    EventsService
   ],
   bootstrap: [AppComponent]
 })

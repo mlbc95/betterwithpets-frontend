@@ -4,27 +4,35 @@
             <p-dialog header="Event Details" [(visible)]="dialogVisible" [responsive]="true" showEffect="fade" [modal]="false" [contentStyle]="{'overflow':'visible'}"
             [style]="{'overflow':'visible'}" [resizable]="false">
             <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="event">
+
+                    <div class="ui-grid-row">
+                            <div class="ui-grid-col-4"><label for="end">Type</label></div>
+                            <p-calendar [(ngModel)]="event.date" showTime="showTime" hourFormat="12"></p-calendar>
+                        </div>
+                        
                 <div class="ui-grid-row">
-                    <div class="ui-grid-col-4"><label for="vin">Title</label></div>
-                    <div class="ui-grid-col-8"><input pInputText id="title" [(ngModel)]="event.title" /></div>
+                    <div class="ui-grid-col-4"><label for="vin">Vendor </label></div>
+                    <div class="ui-grid-col-8"><p-dropdown [options]="businessName" [(ngModel)]="event.vendorId" placeholder="Select"></p-dropdown></div>
                 </div>
                 <div class="ui-grid-row">
-                    <div class="ui-grid-col-4"><label for="start">Start</label></div>
-                    <div class="ui-grid-col-8"><p-calendar [(ngModel)]="event.start" dateFormat="yy-mm-dd" dataType="string"></p-calendar></div>
+                    <div class="ui-grid-col-4"><label for="start">Pet</label></div>
+                    <div class="ui-grid-col-8"><p-dropdown [options]="petName" [(ngModel)]="event.petId" placeholder="Select"></p-dropdown></div>
                 </div>
                 <div class="ui-grid-row">
-                    <div class="ui-grid-col-4"><label for="end">End</label></div>
-                    <div class="ui-grid-col-8"><p-calendar [(ngModel)]="event.end" dateFormat="yy-mm-dd" dataType="string"></p-calendar></div>
+                    <div class="ui-grid-col-4"><label for="end">Type</label></div>
+                    <div class="ui-grid-col-8"><p-dropdown [(ngModel)]="event.type" [options]="serviceType"></p-dropdown></div>
                 </div>
+                
                 <div class="ui-grid-row">
-                    <div class="ui-grid-col-4"><label for="allday">All Day</label></div>
-                    <div class="ui-grid-col-8"><p-checkbox [(ngModel)]="event.allDay" binary="checkbox"></p-checkbox></div>
+                    <div class="ui-grid-col-4"><label for="allday">Description</label></div>
+                    <div class="ui-grid-col-8"><textarea pInputTextarea autoResize="autoResize" [(ngModel)]="event.description" ></textarea>
+                    </div>
                 </div>
+
             </div>
             <p-footer>
                 <div class="ui-dialog-buttonpane ui-helper-clearfix">
-                    <button type="button" pButton icon="fa-close" (click)="deleteEvent()" label="Delete" [disabled]="!event?.id"></button>
-                    <button type="button" pButton icon="fa-check" (click)="saveEvent()" label="Save" [disabled]="!event?.start"></button>
+                    <button type="button" pButton icon="fa-check" (click)="saveEvent()" label="Save" ></button>
                 </div>
             </p-footer>
             </p-dialog>

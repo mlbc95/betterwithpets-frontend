@@ -25,7 +25,8 @@ import { MapsModule } from './shared/maps/maps.module';
 import { SidenavComponent } from './component/dashboard/sidenav/sidenav.component';
 import { DefaultlayoutComponent } from '../layout/defaultlayout/defaultlayout.component';
 import {NavbarComponent} from './component/navbar/navbar.component'
-import {ScheduleModule,DialogModule,CalendarModule,CheckboxModule,DropdownModule} from 'primeng/primeng'
+import {ScheduleModule,DialogModule,CalendarModule,
+        CheckboxModule,DropdownModule,InputTextareaModule} from 'primeng/primeng'
 
 //Services
 import { HttpService } from './services/http/http-service.service';
@@ -145,7 +146,8 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpModule,
-    ScheduleModule,DialogModule,CalendarModule,CheckboxModule,BrowserAnimationsModule,
+    ScheduleModule,DialogModule,CalendarModule,CheckboxModule,
+    BrowserAnimationsModule,InputTextareaModule,
     FormsModule,
     MapsModule,
     AgmCoreModule.forRoot({

@@ -2,6 +2,7 @@ import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { Headers, Http, RequestOptions, Response } from "@angular/http";
 import "rxjs/add/operator/map";
 import {Observable} from "rxjs/Observable";
+import {HttpService} from '../../../services/http/http-service.service';
 
 @Component({
   selector: 'app-calendar',
@@ -10,7 +11,7 @@ import {Observable} from "rxjs/Observable";
 })
 export class CalendarComponent implements OnInit {
 
-  constructor(private cd: ChangeDetectorRef, private http:Http) { }
+  constructor(private cd: ChangeDetectorRef, private http:Http, private httpService: HttpService) { }
   events: any[];
   header: any;
   vendors:any[];
@@ -19,8 +20,18 @@ export class CalendarComponent implements OnInit {
   dialogVisible: boolean = false;
   idGen: number = 100;
   pets:any[];
+  petName:any[]=[];
+  description:string;
+  serviceType:any[]=[
+    {label:"Grooming",value:"Grooming"},
+    {label:"Vet",value:"Vet"},
+    {label:"Day Care", value:"Day Care"}
+  ]
+
+  userToken: string;
 
   ngOnInit() {
+    this.userToken = localStorage.getItem('id_token')
     this.header = {
 			left: 'prev,next today',
 			center: 'title',
@@ -44,12 +55,23 @@ export class CalendarComponent implements OnInit {
 
        var user = JSON.parse(localStorage.getItem("user"))
 
-        this.http.get("https://betterwithpets-server.herokuapp.com/getPetsByUser/" + user._id ).map(res=>{
+        this.http.get("https://betterwithpets-server.herokuapp.com/pets/getPetsByUser/" + user._id ).map(res=>{
             return res.json()
         })
         .subscribe(data =>{
-            this.pets =data;
+            this.pets =data.pets;
+            console.log(this.pets)
+            for(let i in this.pets)
+                {
+                    this.petName.push({label:this.pets[i].name, 
+                                        value:this.pets[i]._id});
+                }
             
+        })
+
+        this.httpService.get("events/getEventsByUser/"+user._id,{}).subscribe(data=>{
+            console.log(data)
+            this.events =data.events;
         })
  
 
@@ -57,6 +79,7 @@ export class CalendarComponent implements OnInit {
 
   handleDayClick(event) {
     this.event = new MyEvent();
+    console.log("test")
     // this.event.start = event.date.format();
     this.dialogVisible = true;
     
@@ -65,10 +88,10 @@ export class CalendarComponent implements OnInit {
 }
 
 handleEventClick(e) {
-//   this.event = new MyEvent();
-//   this.event.title = e.calEvent.title;
+   this.event = new MyEvent();
+   this.event.title = e.calEvent.title;
   
-//   let start = e.calEvent.start;
+   let start = e.calEvent.start;
 //   let end = e.calEvent.end;
 //   if(e.view.name === 'month') {
 //       start.stripTime();
@@ -79,10 +102,23 @@ handleEventClick(e) {
 //       this.event.end = end.format();
 //   }
 
-//   this.event.id = e.calEvent.id;
-//   this.event.start = start.format();
-//   this.event.allDay = e.calEvent.allDay;
-//   this.dialogVisible = true;
+
+  this.event.date = start.format();
+  this.dialogVisible = true;
+}
+
+saveEvent() {
+  this.httpService.post('events/addEvent', this.event, {'Content-Type':'application/json', 'Authorization': this.userToken})
+        .subscribe(
+            (data: any) => {
+                console.log(data);
+            }
+        )
+    console.log(this.event)
+  
+        this.event = null;
+    
+    this.dialogVisible = false;
 }
 
 }
@@ -91,11 +127,9 @@ handleEventClick(e) {
 
 export class MyEvent {
   vendorId: string;
+  date:string;
+  title:string;
   petId:string;
   type: string;
   description:string;
-  duration:{
-      amount: number;
-      unit:number;
-   }
 }

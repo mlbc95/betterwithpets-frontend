@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import {FileUploadModule} from 'primeng/primeng';
 import {SelectButtonModule} from 'primeng/primeng';
 import {InputSwitchModule} from 'primeng/primeng';
+import {OrderListModule} from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
@@ -48,6 +49,7 @@ import { VendorLayoutComponent } from '../layout/vendor-layout/vendor-layout.com
 import { VendorSidenavComponent } from './component/vendor/vendor-sidenav/vendor-sidenav.component';
 
 import {DataListModule} from 'primeng/primeng';
+import { MyDocsComponent } from './component/dashboard/my-docs/my-docs.component';
 
 const routes: Routes = [
 
@@ -107,6 +109,10 @@ const routes: Routes = [
         {
           path:'last-seen',
           component: LastSeenComponent
+        },
+        {
+          path:'my-docs',
+          component: MyDocsComponent
         }
       ]
     }
@@ -151,6 +157,7 @@ const routes: Routes = [
     VendorHomeComponent,
     VendorLayoutComponent,
     VendorSidenavComponent,
+    MyDocsComponent,
 
   ],
   imports: [
@@ -166,6 +173,7 @@ const routes: Routes = [
     MapsModule,
     InputSwitchModule,
     DropdownModule,
+    OrderListModule,
     SelectButtonModule,
     TabViewModule,
     AgmCoreModule.forRoot({

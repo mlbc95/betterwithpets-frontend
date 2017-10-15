@@ -42,7 +42,35 @@ export class ParksComponent implements OnInit {
         description: "here is some information",
         lat: 38.595778,
         lng: -90.231667
-      }
+      },
+      {
+        id: '4',
+        title: "University City Dog Park",
+        description: "here is some information",
+        lat: 38.6612036,
+        lng: -90.325384
+      },
+      // {
+      //   id: '5',
+      //   title: "",
+      //   description: "",
+      //   lat: ,
+      //   lng: 
+      // },
+      // {
+      //   id: '6',
+      //   title: "",
+      //   description: "",
+      //   lat: ,
+      //   lng: 
+      // },
+      // {
+      //   id: '7',
+      //   title: "",
+      //   description: "",
+      //   lat: ,
+      //   lng: 
+      // },
     ]
   }
 }

@@ -169,7 +169,7 @@ const routes: Routes = [
       apiKey: 'AIzaSyCOjECnj7oHctNBjeC4S01nSlMQfMiM3sk'
     }),
     FormsModule,
-    ScheduleModule,DialogModule,CalendarModule,CheckboxModule,BrowserAnimationsModule
+    ScheduleModule,DialogModule,CalendarModule,CheckboxModule,BrowserAnimationsModule,
     DropdownModule
   ],
   providers: [

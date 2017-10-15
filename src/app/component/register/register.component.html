@@ -11,7 +11,7 @@
               <h4 class="card-title">Welcome</h4>
               <form (submit)="onRegisterSubmit()">
                 <div class="input-group form-group">
-                  <input [(ngModel)]="model.username" name="username" type="text" class="form-control" placeholder="Username">
+                  <input [(ngModel)]="model.username" name="username" type="text" class="form-control" placeholder="Email">
                 </div>
 
                 <div class="input-group form-group">
@@ -41,7 +41,7 @@
               <h4 class="card-title">Welcome</h4>
               <form (submit)="onRegisterSubmit()">
                 <div class="input-group form-group">
-                  <input [(ngModel)]="vendor.companyName" name="companyName" type="text" class="form-control" placeholder="Company Name">
+                  <input [(ngModel)]="vendor.businessName" name="businessName" type="text" class="form-control" placeholder="Company Name">
                 </div>
 
                 <div class="input-group form-group">
@@ -49,11 +49,15 @@
                 </div>
 
                 <div class="input-group form-group">
+                    <input [(ngModel)]="vendor.email" name="email" type="text" class="form-control" placeholder="Email">
+                </div>
+
+                <div class="input-group form-group">
                   <input [(ngModel)]="vendor.address" name="address" type="text" class="form-control" placeholder="Address">
                 </div>
 
                 <div class="input-group form-group">
-                  <p-dropdown [options]="vendor.types" name="companytype" [(ngModel)]="type"></p-dropdown>
+                  <p-dropdown [options]="vendor.types" name="companytype" [(ngModel)]="vendor.type"></p-dropdown>
                 </div>
 
                 <div class="input-group form-group">

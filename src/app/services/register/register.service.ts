@@ -11,5 +11,7 @@ export class RegisterService {
   registerNewUser(user){
     return this.httpService.post('users/register', user, {'Content-Type':'application/json'});
   }
-
+  registerNewVendor(vendor){
+    return this.httpService.post('vendors/addVendor', vendor, {'Content-Type':'application/json'});
+  }
 }

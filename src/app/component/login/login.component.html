@@ -14,8 +14,8 @@
                 <div class="input-group form-group">
                   <input [(ngModel)]="model.password" name="password" type="password" class="form-control" placeholder="Password">
                 </div>
-  
-                <input class="btn btn-primary" type="submit" value="Submit" (click)="submitForm()">
+                <button type="button" class="btn btn-primary" (click)="vendorSubmit()">Vendor Login</button>
+                <button type="button" class="btn btn-primary" (click)="userSubmit()">User Login</button>
               </form>
             </div>
           </div>

@@ -13,17 +13,24 @@ export class MypetsComponent implements OnInit {
 
   userPets: any;
   currentUser: any;
+  defaultImgPath: any;
 
   constructor(
     public httpService: HttpService,
     public authService: AuthService,
     public _DomSanitizer: DomSanitizer,
   ) {
-
+    this.defaultImgPath = 'assets/image/ragamuffin.png';
     this.httpService.get('pets/getPetsByUser/' + this.authService.getCurrentUser()._id, {'Content-Type':'application/json'})
       .subscribe(data => {
+        for(var i = 0; i < data.pets.length; i++){
+          if(!data.pets[i].details.photo){
+            data.pets[i].useDefault = true;
+          }else{
+            data.pets[i].useDefault = false;
+          }
+        }
         this.userPets = data.pets;
-        console.log(this.userPets);
       });
   }
 

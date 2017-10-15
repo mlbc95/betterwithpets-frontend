@@ -18,6 +18,11 @@ export class AuthService {
     return this.httpService.post('users/login', user, {'Content-Type':'application/json'});
   }
 
+  vendorLogin(user:any){
+    console.log(user);
+    return this.httpService.post('vendors/login', user, {'Content-Type':'application/json'});
+  }
+
   storeUserData(token, user){
     console.log(user)
     localStorage.setItem('id_token', token);

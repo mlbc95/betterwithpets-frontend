@@ -21,7 +21,31 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  submitForm(){
+vendorSubmit(){
+    const thing = {
+      credentials: {
+        email: this.model.username,
+        password: this.model.password
+      }
+    };
+    console.log(this.model);
+    this.authService.vendorLogin(thing).subscribe(
+      (data: any): void => {
+        if(data.success) {
+          console.log(data);
+          this.authService.storeUserData(data.token, data.user);
+          this.router.navigate(['/vendor-dashboard/']);
+        } else {
+          console.log(data);
+          this.router.navigate(['/register']);
+        }
+      },
+      (err: Error): void => {
+        console.log(err);
+      }
+    );
+  }
+  userSubmit(){
     const thing = {
       credentials: {
         email: this.model.username,
@@ -34,14 +58,11 @@ export class LoginComponent implements OnInit {
         if(data.success) {
           console.log(data);
           this.authService.storeUserData(data.token, data.user);
-          // this.flashMessagesService.show(
-          //   'You are logged in',
-          //   {
-          //     cssClass: 'ui-messages-info',
-          //     timeout: 3000
-          //   }
-          // );
-          this.router.navigate(['/dashboard']);
+          if(data.user.loginCount == 0){
+            this.router.navigate(['/dashboard/add-pet']);
+          }else{
+            this.router.navigate(['/dashboard']);
+          }
         } else {
           console.log(data);
           this.router.navigate(['/register']);

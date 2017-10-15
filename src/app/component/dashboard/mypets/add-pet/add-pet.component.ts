@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SelectItem} from 'primeng/primeng';
 import {HttpService} from '../../../../services/http/http-service.service';
 import {AuthService} from '../../../../services/auth/auth.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -27,6 +28,7 @@ export class AddPetComponent implements OnInit {
   constructor(
     public http: HttpService,
     public auth: AuthService,
+    public router:Router,
   ) {
     this.model = {};
     this.model.details = {};
@@ -55,6 +57,7 @@ export class AddPetComponent implements OnInit {
 
     this.http.post('pets/addpet', pet, {'Content-Type':'application/json', 'Authorization': this.auth.getToken()})
       .subscribe(data => {
+        this.router.navigate(['my-pets']);
         console.log(data);
       },
       error => {
